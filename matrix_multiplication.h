@@ -110,31 +110,36 @@ int passed_verification;
 // void matrix_multiplication(int** matrix1, int** matrix2, int** matrix3);
 
 // other function prototypes
-void initialization(int** matrix1, int** matrix2, int** matrix3);
-void verification(int** matrix);
+void initialization(int* matrix1, int* matrix2, int* matrix3);
+void verification(int* matrix);
 void debug_results(int** matrix);
 void release_resources(int** matrix1, int** matrix2, int** matrix3);
+int index(int j, int i, int n);
 
-void initialization(int** matrix1, int** matrix2, int** matrix3){
+int index(int j, int i, int n){
+	return j+i*n;
+}
+
+void initialization(int* matrix1, int* matrix2, int* matrix3){
 	// setup common stuff
 	setup_common();	
 
 	// initial values of the global arrays
 	for(int i=0; i< N; i++){
 		for(int j=0; j< N; j++){
-			matrix1[i][j] = 4;
-			matrix2[i][j] = 5;
-			matrix3[i][j] = 0;
+			matrix1[index(i, j, N)] = 4;
+			matrix2[index(i, j, N)] = 5;
+			matrix3[index(i, j, N)] = 0;
 
 			if(i == j){
-				matrix1[i][j] = i;
-				matrix2[i][j] = j;
+				matrix1[index(i, j, N)] = i;
+				matrix2[index(i, j, N)] = j;
 			}
 		}
 	}	
 }
 
-void verification(int** matrix){
+void verification(int* matrix){
 	long long int value1 = 0;
 	long long int value2 = 0;
 	long long int value3 = 0;
@@ -148,7 +153,7 @@ void verification(int** matrix){
 	j = 0;
 	for(i=0; i<N; i++){
 		for(j=0; j<N; j++){
-			value1 += (long long int) matrix[i][j];
+			value1 += (long long int) matrix[index(i, j, N)];
 		}
 	}
 
@@ -156,21 +161,21 @@ void verification(int** matrix){
 	i = 0;
 	j = 0;
 	for(i=0; i<N; i++){
-		value2 += (long long int) matrix[i][0];
+		value2 += (long long int) matrix[index(i, 0, N)];
 	}	
 
 	// diagonal
 	i = 0;
 	j = 0;
 	for(i=0; i<N; i++){
-		value3 += (long long int) matrix[i][i];
+		value3 += (long long int) matrix[index(i, i, N)];
 	}
 
 	// line N-1
 	i = 0;
 	j = 0;
 	for(j=0; j<N; j++){
-		value4 += (long long int) matrix[N-1][j];
+		value4 += (long long int) matrix[index(N-1, j, N)];
 	}
 
 	if( (WORKLOAD_CHECKSUM_VALUE_1==value1) &&
