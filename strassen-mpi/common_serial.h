@@ -1,3 +1,41 @@
+/* 
+ * ------------------------------------------------------------------------------
+ *
+ * MIT License
+ *
+ * Copyright (c) 2021 Parallel Applications Modelling Group - GMAP
+ *      GMAP website: https://gmap.pucrs.br
+ *
+ * Pontifical Catholic University of Rio Grande do Sul (PUCRS)
+ * Av. Ipiranga, 6681, Porto Alegre - Brazil, 90619-900
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ * ------------------------------------------------------------------------------
+ * 
+ * Authors of the serial code: 
+ *      Dalvan Griebler <dalvangriebler@gmail.com>
+ *      Gabriell Araujo <hexenoften@gmail.com>
+ *   
+ * ------------------------------------------------------------------------------
+ */
+
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,7 +64,7 @@ double timer_read(int n);
 void activate_debug_flag();
 void activate_timer_flag();
 void get_cpu_model();
-void execution_report(char* application_name, char* workload, double execution_time, int passed_verification);
+void execution_report(char* application_name, char* workload, double execution_time, int passed_verification, int num_nodes);
 void setup_common();
 
 void timer_write_time(double* t){
@@ -111,7 +149,7 @@ void get_cpu_model(){
 	strcpy(cpu_name, error);
 }
 
-void execution_report(char* application_name, char* workload, double execution_time, int passed_verification){
+void execution_report(char* application_name, char* workload, double execution_time, int passed_verification, int num_nodes){
 	printf("----------------------------------------------------------------------------\n");
 	printf(" %s:\n", application_name);
 	printf("\n");
@@ -127,6 +165,7 @@ void execution_report(char* application_name, char* workload, double execution_t
 	printf(" Hardware:\n");
 	printf("\n");
 	printf(" CPU                       =     %s\n", cpu_name);
+	printf(" Number Processes          =     %d\n", num_nodes);
 	printf("----------------------------------------------------------------------------\n");
 	printf(" Flags:\n");
 	printf("\n");

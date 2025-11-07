@@ -15,48 +15,54 @@ declare -A mpiruns
 # BENCHMARKS QUE SERÃO EXECUTADOS EM CADA PASTA
 
 # quantidade de nodos que será utilizada na execução
-numnodes=("16" "32" "64" "96")
+numnodes=("4" "8" "16" "24")
 #numnodes=("4" "2")
 # classes que serão executadas
-# classes=("S" "W" "A" "C")
-classes=("128" "256" "512" "1024")
+classes=("A" "B" "C" "D" "E" "F") 
+# classes=("A" "B" "C") 
 
 # qual o diretorio dos benchmarks que serão executados e quais os benchmarks.
 mpirun="strassen_mpi"
 cpprun="strassen"
 
+HOME=$(pwd)
+
 # Arquivo que terá a saida do resultado.
-resultado="./resultados/resultado.log"
+sequencial=$HOME"/resultados/sequencial.log"
 # Arquivo de log temporario
-logfile="./resultados/execucao.log"
+mpi=$HOME"/resultados/mpi.log"
 
 # Limpa/cria arquivos de log
-> "$logfile"
-> "$resultado"
-
+> "$mpi"
+> "$sequencial"
 echo "---------- GERANDO EXECUTAVEIS DE $dir -----------"
-make 
-gcc strassen.c -o strassen
+
+echo "==== $count EXECUÇÃO SEQUENCIAL:"
+for workload in "${classes[@]}"
+do
+    echo " ENTRADA:  $workload "
+    cd $HOME/strassen
+    make WORKLOAD=$workload
+    "./strassen.$workload.exe" >> "$sequencial" 2>&1
+    echo " ================ " >> "$sequencial"
+    if [ $? -ne 0 ]; then
+        echo "Erro na execução do SERIAL. Abortando." | tee -a "$sequencial"
+        exit 1
+    fi
+done
+
 
 for workload in "${classes[@]}"
 do
+    cd $HOME/strassen-mpi
+    make WORKLOAD=$workload
     for nodes in "${numnodes[@]}"
     do 
         echo "==== $count EXECUÇÃO PARALELA: $workload NODES $nodes"
-        (mpirun -np $nodes --oversubscribe $mpirun $workload) >> "$logfile" 
+        (mpirun -np $nodes -oversubscribe $mpirun.$workload.exe) >> "$mpi" 
         if [ $? -ne 0 ]; then
-            echo "Erro na execução do mpirun -np $nodes '$workload' em $dir. Abortando." | tee -a "$logfile"
+            echo "Erro na execução do mpirun -np $nodes '$workload' em $dir. Abortando." | tee -a "$mpi"
             exit 1
         fi 
-        
-        
     done
-    echo "==== $count EXECUÇÃO SEQUENCIAL: $workload "
-    echo " ENTRADA:  $workload " | tee -a >> "$resultado" 
-    (./strassen $workload) >> "$resultado" 2>&1
-    echo "================ " >> "$resultado"
-    if [ $? -ne 0 ]; then
-        echo "Erro na execução do SERIAL. Abortando." | tee -a "$resultado"
-        exit 1
-    fi
 done

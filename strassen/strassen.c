@@ -4,13 +4,7 @@
 #include <unistd.h>
 #include <math.h>
 #include <string.h>
-
-#define WORKLOAD "A"
-#define WORKLOAD_CHECKSUM_VALUE_1 763840LL
-#define WORKLOAD_CHECKSUM_VALUE_2 21700LL
-#define WORKLOAD_CHECKSUM_VALUE_3 30256LL
-#define WORKLOAD_CHECKSUM_VALUE_4 26846LL
-#define N 32
+#include "matrix_multiplication.h"
 
 char timer_string[2048];
 char checksum_string[2048];
@@ -24,9 +18,6 @@ int **C;
 
 int passed_verification;
 
-void verification(int** matrix, int n);
-void debug_results(int** matrix, int n);
-void release_resources(int** matrix1, int** matrix2, int** matrix3, int n);
 int **initializeMatrix(int n);
 int **add(int **A, int **B, int n);
 int **subtract(int **A, int **B, int n); 
@@ -68,9 +59,7 @@ int GenerateMatrixes(int n)
 	B = initializeMatrix(n);
 	C = initializeMatrix(n);
 	allocMatrixes(A, B, C, n); 
-
-	 
-
+	
 	return n;
 }
 
@@ -178,145 +167,9 @@ int main(int argc, char *argv[])
 	clock_t end_time = clock(); 
 	double cpu_time = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
 		
-	verification(C, N);
-	debug_results(C, N);
-	release_resources(A, B, C, N);
+	verification(C);
+	debug_results(C);
+	release_resources(A, B, C);
 	execution_report((char*)"Matrix Multiplication", (char*)WORKLOAD, cpu_time, passed_verification);
 	return 0;
-}
-
-
-void verification(int** matrix, int n){
-	long long int value1 = 0;
-	long long int value2 = 0;
-	long long int value3 = 0;
-	long long int value4 = 0;
-
-	int i = 0;
-	int j = 0;
-
-	// total
-	i = 0;
-	j = 0;
-	for(i=0; i<n; i++){
-		for(j=0; j<n; j++){
-			value1 += (long long int) matrix[i][j];
-		}
-	}
-
-	// column 0
-	i = 0;
-	j = 0;
-	for(i=0; i<n; i++){
-		value2 += (long long int) matrix[i][0];
-	}	
-
-	// diagonal
-	i = 0;
-	j = 0;
-	for(i=0; i<n; i++){
-		value3 += (long long int) matrix[i][i];
-	}
-
-	// line n-1
-	i = 0;
-	j = 0;
-	for(j=0; j<n; j++){
-		value4 += (long long int) matrix[n-1][j];
-	}
-
-	if( (WORKLOAD_CHECKSUM_VALUE_1==value1) &&
-			(WORKLOAD_CHECKSUM_VALUE_2==value2) &&
-			(WORKLOAD_CHECKSUM_VALUE_3==value3) &&
-			(WORKLOAD_CHECKSUM_VALUE_4==value4) ){
-			passed_verification = 1;
-			printf("PASS\n");
-	}
-	else{
-		passed_verification = 0;
-		printf("NO PASS\n");
-	}
-
-	char checksum_string_aux[256];	
-	sprintf(checksum_string_aux, "%25s\t%20s\t%20s\n", "Reference", "Correct", "Found");
-	strcpy(checksum_string, checksum_string_aux);
-	sprintf(checksum_string_aux, "%25s\t%20lld\t%20lld\n", "checksum_1", WORKLOAD_CHECKSUM_VALUE_1, value1);
-	strcat(checksum_string, checksum_string_aux);
-	sprintf(checksum_string_aux, "%25s\t%20lld\t%20lld\n", "checksum_2", WORKLOAD_CHECKSUM_VALUE_2, value2);
-	strcat(checksum_string, checksum_string_aux);
-	sprintf(checksum_string_aux, "%25s\t%20lld\t%20lld\n", "checksum_3", WORKLOAD_CHECKSUM_VALUE_3, value3);
-	strcat(checksum_string, checksum_string_aux);
-	sprintf(checksum_string_aux, "%25s\t%20lld\t%20lld", "checksum_4", WORKLOAD_CHECKSUM_VALUE_4, value4);
-	strcat(checksum_string, checksum_string_aux);
-
-	// char timer_string_aux[256];	
-	// sprintf(timer_string_aux, "%25s\t%20s\t%20s\n", "Timer", "Time (s)", "Percentage");
-	// strcpy(timer_string, timer_string_aux);
-	// sprintf(timer_string_aux, "%25s\t%20f\t%19.2f%%\n", "memory_transfers", timer_read(TIMER_MEMORY_TRANSFERS), (timer_read(TIMER_MEMORY_TRANSFERS)*100/timer_read(TIMER_TOTAL)));
-	// strcat(timer_string, timer_string_aux);
-	// sprintf(timer_string_aux, "%25s\t%20f\t%19.2f%%\n", "linearization", timer_read(TIMER_LINEARIZATION), (timer_read(TIMER_LINEARIZATION)*100/timer_read(TIMER_TOTAL)));
-	// strcat(timer_string, timer_string_aux);
-	// sprintf(timer_string_aux, "%25s\t%20f\t%19.2f%%", "matrix_multiplication", timer_read(TIMER_COMPUTATION), (timer_read(TIMER_COMPUTATION)*100/timer_read(TIMER_TOTAL)));
-	// strcat(timer_string, timer_string_aux);
-}
-
-void debug_results(int** matrix, int n){
-	// if(true){
-		FILE* file;
-		file = fopen("matrix_multiplication.debug.dat", "w");
-		fprintf(file, "%s\n\n", checksum_string);
-		for(int i=0; i<n; i++){				
-			for(int j=0; j<n; j++){
-				fprintf(file, "%d ", matrix[i][j]);
-			}
-			fprintf(file, "\n");
-		}
-		fclose(file);	
-	// }			
-}
-
-void release_resources(int** matrix1, int** matrix2, int** matrix3, int n){
-	for (int i=0; i<n; i++){
-		free(matrix1[i]);
-		free(matrix2[i]);
-		free(matrix3[i]);
-	}
-	free(matrix1);
-	free(matrix2);
-	free(matrix3);
-}
-
-
-void execution_report(char* application_name, char* workload, double execution_time, int passed_verification){
-	printf("----------------------------------------------------------------------------\n");
-	printf(" %s:\n", application_name);
-	printf("\n");
-	printf(" Workload                  =     %s\n", workload);	
-	printf(" Execution time in seconds =     %f\n", execution_time);
-	if(passed_verification == 1){
-		printf(" Correctness verification  =     SUCCESSFUL\n");
-	}
-	else{
-		printf(" Correctness verification  =     UNSUCCESSFUL\n");
-	}
-	printf("----------------------------------------------------------------------------\n");
-	printf(" Hardware:\n");
-	printf("\n");
-	printf(" CPU                       =     %s\n", cpu_name);
-	printf("----------------------------------------------------------------------------\n");
-	printf(" Flags:\n");
-	printf("\n");
-	if(debug_flag){printf(" Debug flag enabled\n");}else{printf(" Debug flag disabled\n");}
-	if(timer_flag){printf(" Timer flag enabled\n");}else{printf(" Timer flag disabled\n");}
-	printf("----------------------------------------------------------------------------\n");	
-	printf(" Correctness:\n");
-	printf("\n");
-	printf("%s\n", checksum_string);
-	printf("----------------------------------------------------------------------------\n");
-	if(timer_flag){
-		printf(" Timers:\n");
-		printf("\n");
-		printf("%s\n", timer_string);
-		printf("----------------------------------------------------------------------------\n");
-	}
 }

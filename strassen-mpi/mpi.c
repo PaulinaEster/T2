@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 		verification(C);
 		debug_results(C);
 		release_resources(A, B, C);
-		execution_report((char *)"Matrix Multiplication", (char *)WORKLOAD, cpu_time, passed_verification);
+		execution_report((char *)"Matrix Multiplication", (char *)WORKLOAD, cpu_time, passed_verification, comm_size);
 		finalize_nodes();
 	}
 	else
@@ -70,7 +70,10 @@ void run_helper_mpi(int my_rank, int max_rank, int tag, MPI_Comm comm)
 		MPI_Get_count(&status, MPI_INT, &size);
 		int parent_rank = status.MPI_SOURCE;
 
-		if (size == 1) { break; }
+		if (size == 1)
+		{
+			break;
+		}
 		int k = sqrt(size);
 
 		int *A11 = initializeMatrix(size);
@@ -113,6 +116,8 @@ void finalize_nodes()
 
 int *strassen_parallel_mpi(int *A, int *B, int size, int level, int my_rank, int max_rank, int tag, MPI_Comm comm)
 {
+
+	int k = size / 2;
 	int helper_rank = my_rank + pow(2, level);
 	if (helper_rank >= max_rank || size <= 1)
 	{
@@ -120,8 +125,6 @@ int *strassen_parallel_mpi(int *A, int *B, int size, int level, int my_rank, int
 	}
 	else
 	{
-		int k = size / 2;
-
 		MPI_Request request[6];
 		MPI_Status status_send[6];
 		MPI_Status status[3];
@@ -158,34 +161,35 @@ int *strassen_parallel_mpi(int *A, int *B, int size, int level, int my_rank, int
 		A11_A12 = add(A11, A12, k);
 		A21_A22 = add(A21, A22, k);
 
-		// MPI_Send(A11, k*k, MPI_INT, helper_rank, 11, comm);
-		// MPI_Send(B12_B22, k*k, MPI_INT, helper_rank, 1222, comm);
-		// MPI_Send(A11_A12, k*k, MPI_INT, helper_rank, 1112, comm);
-		// MPI_Send(B22, k*k, MPI_INT, helper_rank, 22, comm);
-		// MPI_Send(A21_A22, k*k, MPI_INT, helper_rank, 2122, comm);
-		// MPI_Send(B11, k*k, MPI_INT, helper_rank, 11, comm);
-
-		MPI_Isend(A11, k * k, MPI_INT, helper_rank, 11, comm, &request[0]);
-		MPI_Isend(subtract(B12, B22, k), k * k, MPI_INT, helper_rank, 1222, comm, &request[1]);
-		MPI_Isend(add(A11, A12, k), k * k, MPI_INT, helper_rank, 1112, comm, &request[2]);
-		MPI_Isend(B22, k * k, MPI_INT, helper_rank, 22, comm, &request[3]);
-		MPI_Isend(add(A21, A22, k), k * k, MPI_INT, helper_rank, 2122, comm, &request[4]);
-		MPI_Isend(B11, k * k, MPI_INT, helper_rank, 11, comm, &request[5]);
 
 		int *P1 = initializeMatrix(k);
 		int *P2 = initializeMatrix(k);
 		int *P3 = initializeMatrix(k);
+		if (size > 256)
+		{
+			P1 = strassen_parallel_mpi(A11, B12_B22, k, level, my_rank, max_rank, tag, comm);
+			P2 = strassen_parallel_mpi(A11_A12, B22, k, level+5, my_rank, max_rank, tag, comm);
+			P3 = strassen_parallel_mpi(A21_A22, B11, k, level+6, my_rank, max_rank, tag, comm);
+		} else {
+			MPI_Isend(A11, k * k, MPI_INT, helper_rank, 11, comm, &request[0]);
+			MPI_Isend(subtract(B12, B22, k), k * k, MPI_INT, helper_rank, 1222, comm, &request[1]);
+			MPI_Isend(add(A11, A12, k), k * k, MPI_INT, helper_rank, 1112, comm, &request[2]);
+			MPI_Isend(B22, k * k, MPI_INT, helper_rank, 22, comm, &request[3]);
+			MPI_Isend(add(A21, A22, k), k * k, MPI_INT, helper_rank, 2122, comm, &request[4]);
+			MPI_Isend(B11, k * k, MPI_INT, helper_rank, 11, comm, &request[5]);
+		}
 
 		int *P4 = strassen_parallel_mpi(A22, subtract(B21, B11, k), k, level + 1, my_rank, max_rank, tag, comm);
 		int *P5 = strassen_parallel_mpi(add(A11, A22, k), add(B11, B22, k), k, level + 2, my_rank, max_rank, tag, comm);
 		int *P6 = strassen_parallel_mpi(subtract(A12, A22, k), add(B21, B22, k), k, level + 3, my_rank, max_rank, tag, comm);
 		int *P7 = strassen_parallel_mpi(subtract(A11, A21, k), add(B11, B12, k), k, level + 4, my_rank, max_rank, tag, comm);
 
-		MPI_Waitall(5, request, status_send);
-
-		MPI_Recv(P1, k * k, MPI_INT, helper_rank, tag + 1 + helper_rank, comm, &status[0]);
-		MPI_Recv(P2, k * k, MPI_INT, helper_rank, tag + 2 + helper_rank, comm, &status[1]);
-		MPI_Recv(P3, k * k, MPI_INT, helper_rank, tag + 3 + helper_rank, comm, &status[2]);
+		if (size <= 256){
+			MPI_Waitall(5, request, status_send);
+			MPI_Recv(P1, k * k, MPI_INT, helper_rank, tag + 1 + helper_rank, comm, &status[0]);
+			MPI_Recv(P2, k * k, MPI_INT, helper_rank, tag + 2 + helper_rank, comm, &status[1]);
+			MPI_Recv(P3, k * k, MPI_INT, helper_rank, tag + 3 + helper_rank, comm, &status[2]);
+		}
 
 		int *C = initializeMatrix(size);
 

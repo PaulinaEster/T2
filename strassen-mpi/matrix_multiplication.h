@@ -1,6 +1,35 @@
-
+/* 
+ * --------------------------------------------------------------------------------------------------------------
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ *
+ * As a special exception, you may use this file as part of a free software
+ * library without restriction.  Specifically, if other files instantiate
+ * templates or use macros or inline functions from this file, or you compile
+ * this file and link it with other files to produce an executable, this
+ * file does not by itself cause the resulting executable to be covered by
+ * the GNU General Public License.  This exception does not however
+ * invalidate any other reasons why the executable file might be covered by
+ * the GNU General Public License.
+ *
+ * --------------------------------------------------------------------------------------------------------------
+ * Authors: 
+ *      Dalvan Griebler <dalvangriebler@gmail.com>
+ *      Gabriell Araujo <hexenoften@gmail.com>
+ * --------------------------------------------------------------------------------------------------------------
+ */ 
 #include "common_serial.h"
-
+ 
 #if defined(WORKLOAD_A)
 #define WORKLOAD "A"
 #define WORKLOAD_CHECKSUM_VALUE_1 763840LL
@@ -71,42 +100,42 @@
 #define TIMER_MEMORY_TRANSFERS 1
 #define TIMER_LINEARIZATION 2
 #define TIMER_COMPUTATION 3
+#define TIMER_DESLINEARIZATION 4
 
 // global variables
-int** matrix1;
-int** matrix2;
-int** matrix3;
 int passed_verification;
 
-// matrix multiplication function prototype
-void matrix_multiplication(int** matrix1, int** matrix2, int** matrix3);
-
 // other function prototypes
-void initialization(int** matrix1, int** matrix2, int** matrix3);
-void verification(int** matrix);
-void debug_results(int** matrix);
-void release_resources(int** matrix1, int** matrix2, int** matrix3);
+void initialization(int* matrix1, int* matrix2, int* matrix3);
+void verification(int* matrix);
+void debug_results(int* matrix);
+void release_resources(int* matrix1, int* matrix2, int* matrix3);
+int index(int j, int i, int n);
 
-void initialization(int** matrix1, int** matrix2, int** matrix3){
+int index(int i, int j, int n){
+	return i + j * n;
+}
+
+void initialization(int* matrix1, int* matrix2, int* matrix3){
 	// setup common stuff
 	setup_common();	
 
 	// initial values of the global arrays
-	for(int i=0; i<N; i++){
-		for(int j=0; j<N; j++){
-			matrix1[i][j] = 4;
-			matrix2[i][j] = 5;
-			matrix3[i][j] = 0;
+	for(int i=0; i< N; i++){
+		for(int j=0; j< N; j++){
+			matrix1[index(i, j, N)] = 4;
+			matrix2[index(i, j, N)] = 5;
+			matrix3[index(i, j, N)] = 0;
 
 			if(i == j){
-				matrix1[i][j] = i;
-				matrix2[i][j] = j;
+				matrix1[index(i, j, N)] = i;
+				matrix2[index(i, j, N)] = j;
 			}
 		}
 	}	
 }
 
-void verification(int** matrix){
+void verification(int* matrix){
 	long long int value1 = 0;
 	long long int value2 = 0;
 	long long int value3 = 0;
@@ -120,7 +149,7 @@ void verification(int** matrix){
 	j = 0;
 	for(i=0; i<N; i++){
 		for(j=0; j<N; j++){
-			value1 += (long long int) matrix[i][j];
+			value1 += (long long int) matrix[index(i, j, N)];
 		}
 	}
 
@@ -128,21 +157,21 @@ void verification(int** matrix){
 	i = 0;
 	j = 0;
 	for(i=0; i<N; i++){
-		value2 += (long long int) matrix[i][0];
+		value2 += (long long int) matrix[index(i, 0, N)];
 	}	
 
 	// diagonal
 	i = 0;
 	j = 0;
 	for(i=0; i<N; i++){
-		value3 += (long long int) matrix[i][i];
+		value3 += (long long int) matrix[index(i, i, N)];
 	}
 
 	// line N-1
 	i = 0;
 	j = 0;
 	for(j=0; j<N; j++){
-		value4 += (long long int) matrix[N-1][j];
+		value4 += (long long int) matrix[index(N-1, j, N)];
 	}
 
 	if( (WORKLOAD_CHECKSUM_VALUE_1==value1) &&
@@ -150,11 +179,12 @@ void verification(int** matrix){
 			(WORKLOAD_CHECKSUM_VALUE_3==value3) &&
 			(WORKLOAD_CHECKSUM_VALUE_4==value4) ){
 		passed_verification = 1;
+		printf("PASS\n");
 	}
 	else{
+		printf("UNSSUCCESFUL\n");
 		passed_verification = 0;
 	}
-
 	char checksum_string_aux[256];	
 	sprintf(checksum_string_aux, "%25s\t%20s\t%20s\n", "Reference", "Correct", "Found");
 	strcpy(checksum_string, checksum_string_aux);
@@ -174,31 +204,28 @@ void verification(int** matrix){
 	strcat(timer_string, timer_string_aux);
 	sprintf(timer_string_aux, "%25s\t%20f\t%19.2f%%\n", "linearization", timer_read(TIMER_LINEARIZATION), (timer_read(TIMER_LINEARIZATION)*100/timer_read(TIMER_TOTAL)));
 	strcat(timer_string, timer_string_aux);
+	sprintf(timer_string_aux, "%25s\t%20f\t%19.2f%%\n", "deslinearization", timer_read(TIMER_DESLINEARIZATION), (timer_read(TIMER_DESLINEARIZATION)*100/timer_read(TIMER_TOTAL)));
+	strcat(timer_string, timer_string_aux);
 	sprintf(timer_string_aux, "%25s\t%20f\t%19.2f%%", "matrix_multiplication", timer_read(TIMER_COMPUTATION), (timer_read(TIMER_COMPUTATION)*100/timer_read(TIMER_TOTAL)));
 	strcat(timer_string, timer_string_aux);
 }
 
-void debug_results(int** matrix){
-	if(debug_flag){
+void debug_results(int* matrix){
+	// if(true){
 		FILE* file;
 		file = fopen("matrix_multiplication.debug.dat", "w");
 		fprintf(file, "%s\n\n", checksum_string);
 		for(int i=0; i<N; i++){				
 			for(int j=0; j<N; j++){
-				fprintf(file, "%d ", matrix[i][j]);
+				fprintf(file, "%d ", matrix[index(i, j, N)]);
 			}
 			fprintf(file, "\n");
 		}
 		fclose(file);	
-	}			
+	// }			
 }
 
-void release_resources(int** matrix1, int** matrix2, int** matrix3){
-	for (int i=0; i<N; i++){
-		free(matrix1[i]);
-		free(matrix2[i]);
-		free(matrix3[i]);
-	}
+void release_resources(int* matrix1, int* matrix2, int* matrix3){ 
 	free(matrix1);
 	free(matrix2);
 	free(matrix3);
