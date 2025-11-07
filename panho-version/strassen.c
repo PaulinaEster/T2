@@ -44,20 +44,9 @@ void allocMatrixes(int n)
 }
 
 int GenerateMatrixes(int n)
-{
-	printf("\nSerão geradas 2 matrizes %d x %d de inteiros aleatórios\n", n, n);
+{ 
 
-	allocMatrixes(n);
-	sleep(3);
-
-	system("clear");
-	if(n <= 10) {
-		printf("Matrizes geradas:\n\n");
-		printf("Matriz A\n");
-		printMatrix(A, n);
-		printf("Matriz B\n");
-		printMatrix(B, n);
-	}
+	allocMatrixes(n); 
 
 	return n;
 }
@@ -161,9 +150,12 @@ int main(int argc, char const *argv[])
 	int n = atoi(argv[1]);
 
 	n = GenerateMatrixes(n);
-
-	printf("Multiplicando...\nResultado:\n\n");
+ 
+    clock_t start_time = clock();
 	C = strassenMultiply(A, B, n);
-
+	clock_t end_time = clock(); 
+	double cpu_time = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	printf("MPI Strassen multiplication completed!\n");
+	printf("CPU Time: %.6f seconds\n", cpu_time); 
 	return 0;
 }

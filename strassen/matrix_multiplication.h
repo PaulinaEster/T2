@@ -106,18 +106,15 @@
 // global variables
 int passed_verification;
 
-// matrix multiplication function prototype
-// void matrix_multiplication(int** matrix1, int** matrix2, int** matrix3);
-
 // other function prototypes
 void initialization(int* matrix1, int* matrix2, int* matrix3);
 void verification(int* matrix);
-void debug_results(int** matrix);
-void release_resources(int** matrix1, int** matrix2, int** matrix3);
+void debug_results(int* matrix);
+void release_resources(int* matrix1, int* matrix2, int* matrix3);
 int index(int j, int i, int n);
 
-int index(int j, int i, int n){
-	return j+i*n;
+int index(int i, int j, int n){
+	return i + j * n;
 }
 
 void initialization(int* matrix1, int* matrix2, int* matrix3){
@@ -186,6 +183,7 @@ void verification(int* matrix){
 		printf("PASS\n");
 	}
 	else{
+		printf("UNSSUCCESFUL\n");
 		passed_verification = 0;
 	}
 	char checksum_string_aux[256];	
@@ -213,27 +211,22 @@ void verification(int* matrix){
 	strcat(timer_string, timer_string_aux);
 }
 
-void debug_results(int** matrix){
-	if(debug_flag){
+void debug_results(int* matrix){
+	// if(true){
 		FILE* file;
 		file = fopen("matrix_multiplication.debug.dat", "w");
 		fprintf(file, "%s\n\n", checksum_string);
 		for(int i=0; i<N; i++){				
 			for(int j=0; j<N; j++){
-				fprintf(file, "%d ", matrix[i][j]);
+				fprintf(file, "%d ", matrix[index(i, j, N)]);
 			}
 			fprintf(file, "\n");
 		}
 		fclose(file);	
-	}			
+	// }			
 }
 
-void release_resources(int** matrix1, int** matrix2, int** matrix3){
-	for (int i=0; i<N; i++){
-		free(matrix1[i]);
-		free(matrix2[i]);
-		free(matrix3[i]);
-	}
+void release_resources(int* matrix1, int* matrix2, int* matrix3){ 
 	free(matrix1);
 	free(matrix2);
 	free(matrix3);
