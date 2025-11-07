@@ -46,49 +46,55 @@ int main(int argc, char *argv[])
 
 		printf("[%d] verification\n", my_rank);
 		verification(C); 
-	} else {
+	} else {		
 		run_helper_mpi(my_rank, max_rank, tag, MPI_COMM_WORLD);
 	}
-
+	printf("[%d] Finalizando\n", my_rank);
     MPI_Finalize();
 	return 0;
 }
 
 void run_helper_mpi(int my_rank, int max_rank, int tag, MPI_Comm comm)
 {
-	int level = my_topmost_level_mpi(my_rank);
-	MPI_Status status_recv[6];
-	MPI_Status status;
-	int size;
-	MPI_Probe(MPI_ANY_SOURCE, 11, comm, &status);
-	MPI_Get_count(&status, MPI_INT, &size);
-	int k = sqrt(size);
-	
-	int parent_rank = status.MPI_SOURCE;
-	
-	int *A11 = initializeMatrix(size);
-	int *B12_B22 = initializeMatrix(size);
-	int *A11_A12 = initializeMatrix(size); 
-	int *A21_A22 = initializeMatrix(size);
-	int *B11 = initializeMatrix(size);
-	int *B22 = initializeMatrix(size);
+	for(int i = 1; i <= 4; i++ ){
+		printf("[%d] ESPERANDO\n", my_rank);
+		int level = my_topmost_level_mpi(my_rank);
+		MPI_Status status_recv[6];
+		MPI_Status status;
+		int size;
+		MPI_Probe(MPI_ANY_SOURCE, 11, comm, &status);
+		MPI_Get_count(&status, MPI_INT, &size);
+		int k = sqrt(size);
+		
+		int parent_rank = status.MPI_SOURCE;
+		
+		int *A11 = initializeMatrix(size);
+		int *B12_B22 = initializeMatrix(size);
+		int *A11_A12 = initializeMatrix(size); 
+		int *A21_A22 = initializeMatrix(size);
+		int *B11 = initializeMatrix(size);
+		int *B22 = initializeMatrix(size);
 
-	MPI_Recv(A11, size, MPI_INT, parent_rank, 11, comm, &status_recv[0]);
-	MPI_Recv(B12_B22, size, MPI_INT, parent_rank, 1222, comm, &status_recv[1]);
-	MPI_Recv(A11_A12, size, MPI_INT, parent_rank, 1112, comm, &status_recv[2]);
-	MPI_Recv(B22, size, MPI_INT, parent_rank, 22, comm, &status_recv[3]);
-	MPI_Recv(A21_A22, size, MPI_INT, parent_rank, 2122, comm, &status_recv[4]);
-	MPI_Recv(B11, size, MPI_INT, parent_rank, 11, comm, &status_recv[5]);
-	printf("[%d] RECEBE DE %d LEVEL %d\n", my_rank, parent_rank, level);
+		MPI_Recv(A11, size, MPI_INT, parent_rank, 11, comm, &status_recv[0]);
+		MPI_Recv(B12_B22, size, MPI_INT, parent_rank, 1222, comm, &status_recv[1]);
+		MPI_Recv(A11_A12, size, MPI_INT, parent_rank, 1112, comm, &status_recv[2]);
+		MPI_Recv(B22, size, MPI_INT, parent_rank, 22, comm, &status_recv[3]);
+		MPI_Recv(A21_A22, size, MPI_INT, parent_rank, 2122, comm, &status_recv[4]);
+		MPI_Recv(B11, size, MPI_INT, parent_rank, 11, comm, &status_recv[5]);
+		printf("[%d] RECEBE DE %d LEVEL %d\n", my_rank, parent_rank, level);
 
-	int* P1 = strassen_parallel_mpi(A11, B12_B22, k, level, my_rank, max_rank, tag, comm);
-	int* P2 = strassen_parallel_mpi(A11_A12, B22, k, level, my_rank, max_rank, tag, comm);
-	int* P3 = strassen_parallel_mpi(A21_A22, B11, k, level, my_rank, max_rank, tag, comm);
-	
-	MPI_Send(P1, size, MPI_INT, parent_rank, tag+1, comm);
-	MPI_Send(P2, size, MPI_INT, parent_rank, tag+2, comm);
-	MPI_Send(P3, size, MPI_INT, parent_rank, tag+3, comm);
-	printf("[%d] FIM SEND PARA %d \n", my_rank, parent_rank);
+		int* P1 = strassen_parallel_mpi(A11, B12_B22, k, level, my_rank, max_rank, tag, comm);
+		int* P2 = strassen_parallel_mpi(A11_A12, B22, k, level, my_rank, max_rank, tag, comm);
+		int* P3 = strassen_parallel_mpi(A21_A22, B11, k, level, my_rank, max_rank, tag, comm);
+		
+		MPI_Send(P1, size, MPI_INT, parent_rank, tag+1, comm);
+		MPI_Send(P2, size, MPI_INT, parent_rank, tag+2, comm);
+		MPI_Send(P3, size, MPI_INT, parent_rank, tag+3, comm);
+		printf("[%d] FIM SEND PARA %d \n", my_rank, parent_rank);
+
+		int helper_rank = my_rank + pow(2, level);
+		// if()
+	}
 	return;
 }
 

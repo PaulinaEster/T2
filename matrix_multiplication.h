@@ -30,7 +30,7 @@
  */ 
 #include "common_serial.h"
 
-#define WORKLOAD_A
+#define WORKLOAD_C
 #if defined(WORKLOAD_A)
 #define WORKLOAD "A"
 #define WORKLOAD_CHECKSUM_VALUE_1 763840LL
@@ -183,11 +183,11 @@ void verification(int* matrix){
 			(WORKLOAD_CHECKSUM_VALUE_3==value3) &&
 			(WORKLOAD_CHECKSUM_VALUE_4==value4) ){
 		passed_verification = 1;
+		printf("PASS\n");
 	}
 	else{
 		passed_verification = 0;
 	}
-
 	char checksum_string_aux[256];	
 	sprintf(checksum_string_aux, "%25s\t%20s\t%20s\n", "Reference", "Correct", "Found");
 	strcpy(checksum_string, checksum_string_aux);
