@@ -3,7 +3,7 @@
  Matrix Multiplication:
 
  Workload                  =     A
- Execution time in seconds =     0.001093
+ Execution time in seconds =     0.014147
  Correctness verification  =     SUCCESSFUL
 ----------------------------------------------------------------------------
  Hardware:
@@ -29,7 +29,7 @@
  Matrix Multiplication:
 
  Workload                  =     B
- Execution time in seconds =     0.007528
+ Execution time in seconds =     0.072927
  Correctness verification  =     SUCCESSFUL
 ----------------------------------------------------------------------------
  Hardware:
@@ -48,5 +48,83 @@
                checksum_2	               89460	               89460
                checksum_3	              165984	              165984
                checksum_4	              111006	              111006
+----------------------------------------------------------------------------
+ ================ 
+1.1 
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     C
+ Execution time in seconds =     0.668764
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	            51271424	            51271424
+               checksum_2	              363220	              363220
+               checksum_3	             1016000	             1016000
+               checksum_4	              451358	              451358
+----------------------------------------------------------------------------
+ ================ 
+1.1 
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     D
+ Execution time in seconds =     3.674400
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	           413396480	           413396480
+               checksum_2	             1463700	             1463700
+               checksum_3	             6865280	             6865280
+               checksum_4	             1820190	             1820190
+----------------------------------------------------------------------------
+ ================ 
+1.1 
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     E
+ Execution time in seconds =     24.530320
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	          3320110080	          3320110080
+               checksum_2	             5876500	             5876500
+               checksum_3	            49840896	            49840896
+               checksum_4	             7310366	             7310366
 ----------------------------------------------------------------------------
  ================ 

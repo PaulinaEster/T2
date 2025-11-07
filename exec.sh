@@ -15,10 +15,10 @@ declare -A mpiruns
 # BENCHMARKS QUE SERÃO EXECUTADOS EM CADA PASTA
 
 # quantidade de nodos que será utilizada na execução
-numnodes=("4" "8" "16" "24")
+numnodes=("4" "8" "16")
 #numnodes=("4" "2")
 # classes que serão executadas
-classes=("A" "B" "C" "D" "E" "F") 
+classes=("A" "B" "C" "D" "E") 
 # classes=("A" "B" "C") 
 
 # qual o diretorio dos benchmarks que serão executados e quais os benchmarks.
@@ -33,7 +33,7 @@ sequencial=$HOME"/resultados/sequencial.log"
 mpi=$HOME"/resultados/mpi.log"
 
 # Limpa/cria arquivos de log
-> "$mpi"
+#> "$mpi"
 > "$sequencial"
 echo "---------- GERANDO EXECUTAVEIS DE $dir -----------"
 

@@ -1,0 +1,788 @@
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     A
+ Execution time in seconds =     0.025476
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	              763840	              763840
+               checksum_2	               21700	               21700
+               checksum_3	               30256	               30256
+               checksum_4	               26846	               26846
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     A
+ Execution time in seconds =     0.032366
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	              763840	              763840
+               checksum_2	               21700	               21700
+               checksum_3	               30256	               30256
+               checksum_4	               26846	               26846
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     A
+ Execution time in seconds =     0.049443
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	              763840	              763840
+               checksum_2	               21700	               21700
+               checksum_3	               30256	               30256
+               checksum_4	               26846	               26846
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     B
+ Execution time in seconds =     0.069915
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	             6308736	             6308736
+               checksum_2	               89460	               89460
+               checksum_3	              165984	              165984
+               checksum_4	              111006	              111006
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     B
+ Execution time in seconds =     0.048515
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	             6308736	             6308736
+               checksum_2	               89460	               89460
+               checksum_3	              165984	              165984
+               checksum_4	              111006	              111006
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     B
+ Execution time in seconds =     0.059811
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	             6308736	             6308736
+               checksum_2	               89460	               89460
+               checksum_3	              165984	              165984
+               checksum_4	              111006	              111006
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     C
+ Execution time in seconds =     0.190363
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	            51271424	            51271424
+               checksum_2	              363220	              363220
+               checksum_3	             1016000	             1016000
+               checksum_4	              451358	              451358
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     C
+ Execution time in seconds =     0.177201
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	            51271424	            51271424
+               checksum_2	              363220	              363220
+               checksum_3	             1016000	             1016000
+               checksum_4	              451358	              451358
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     C
+ Execution time in seconds =     0.177955
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	            51271424	            51271424
+               checksum_2	              363220	              363220
+               checksum_3	             1016000	             1016000
+               checksum_4	              451358	              451358
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     D
+ Execution time in seconds =     1.459141
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	           413396480	           413396480
+               checksum_2	             1463700	             1463700
+               checksum_3	             6865280	             6865280
+               checksum_4	             1820190	             1820190
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     D
+ Execution time in seconds =     1.343010
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	           413396480	           413396480
+               checksum_2	             1463700	             1463700
+               checksum_3	             6865280	             6865280
+               checksum_4	             1820190	             1820190
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     D
+ Execution time in seconds =     1.168642
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	           413396480	           413396480
+               checksum_2	             1463700	             1463700
+               checksum_3	             6865280	             6865280
+               checksum_4	             1820190	             1820190
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     E
+ Execution time in seconds =     14.579602
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	          3320110080	          3320110080
+               checksum_2	             5876500	             5876500
+               checksum_3	            49840896	            49840896
+               checksum_4	             7310366	             7310366
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     E
+ Execution time in seconds =     13.900516
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	          3320110080	          3320110080
+               checksum_2	             5876500	             5876500
+               checksum_3	            49840896	            49840896
+               checksum_4	             7310366	             7310366
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     E
+ Execution time in seconds =     13.405029
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	          3320110080	          3320110080
+               checksum_2	             5876500	             5876500
+               checksum_3	            49840896	            49840896
+               checksum_4	             7310366	             7310366
+----------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 419183 on node cerrado14 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+Erro na execução do mpirun -np 4 'F' em . Abortando.
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 419236 on node cerrado14 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+Erro na execução do mpirun -np 8 'F' em . Abortando.
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     A
+ Execution time in seconds =     0.025823
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	              763840	              763840
+               checksum_2	               21700	               21700
+               checksum_3	               30256	               30256
+               checksum_4	               26846	               26846
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     A
+ Execution time in seconds =     0.036128
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	              763840	              763840
+               checksum_2	               21700	               21700
+               checksum_3	               30256	               30256
+               checksum_4	               26846	               26846
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     A
+ Execution time in seconds =     0.049934
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	              763840	              763840
+               checksum_2	               21700	               21700
+               checksum_3	               30256	               30256
+               checksum_4	               26846	               26846
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     B
+ Execution time in seconds =     0.043672
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	             6308736	             6308736
+               checksum_2	               89460	               89460
+               checksum_3	              165984	              165984
+               checksum_4	              111006	              111006
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     B
+ Execution time in seconds =     0.049567
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	             6308736	             6308736
+               checksum_2	               89460	               89460
+               checksum_3	              165984	              165984
+               checksum_4	              111006	              111006
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     B
+ Execution time in seconds =     0.059641
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	             6308736	             6308736
+               checksum_2	               89460	               89460
+               checksum_3	              165984	              165984
+               checksum_4	              111006	              111006
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     C
+ Execution time in seconds =     0.333736
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	            51271424	            51271424
+               checksum_2	              363220	              363220
+               checksum_3	             1016000	             1016000
+               checksum_4	              451358	              451358
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     C
+ Execution time in seconds =     0.176225
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	            51271424	            51271424
+               checksum_2	              363220	              363220
+               checksum_3	             1016000	             1016000
+               checksum_4	              451358	              451358
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     C
+ Execution time in seconds =     0.189570
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	            51271424	            51271424
+               checksum_2	              363220	              363220
+               checksum_3	             1016000	             1016000
+               checksum_4	              451358	              451358
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     D
+ Execution time in seconds =     1.505868
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	           413396480	           413396480
+               checksum_2	             1463700	             1463700
+               checksum_3	             6865280	             6865280
+               checksum_4	             1820190	             1820190
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     D
+ Execution time in seconds =     1.199369
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	           413396480	           413396480
+               checksum_2	             1463700	             1463700
+               checksum_3	             6865280	             6865280
+               checksum_4	             1820190	             1820190
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     D
+ Execution time in seconds =     1.336641
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	           413396480	           413396480
+               checksum_2	             1463700	             1463700
+               checksum_3	             6865280	             6865280
+               checksum_4	             1820190	             1820190
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     E
+ Execution time in seconds =     14.644934
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     4
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	          3320110080	          3320110080
+               checksum_2	             5876500	             5876500
+               checksum_3	            49840896	            49840896
+               checksum_4	             7310366	             7310366
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     E
+ Execution time in seconds =     13.952403
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     8
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	          3320110080	          3320110080
+               checksum_2	             5876500	             5876500
+               checksum_3	            49840896	            49840896
+               checksum_4	             7310366	             7310366
+----------------------------------------------------------------------------
+PASS
+----------------------------------------------------------------------------
+ Matrix Multiplication:
+
+ Workload                  =     E
+ Execution time in seconds =     13.400118
+ Correctness verification  =     SUCCESSFUL
+----------------------------------------------------------------------------
+ Hardware:
+
+ CPU                       =     Intel(R) Xeon(R) CPU E5-2620 v2 @ 2.10GHz
+ Number Processes          =     16
+----------------------------------------------------------------------------
+ Flags:
+
+ Debug flag disabled
+ Timer flag disabled
+----------------------------------------------------------------------------
+ Correctness:
+
+                Reference	             Correct	               Found
+               checksum_1	          3320110080	          3320110080
+               checksum_2	             5876500	             5876500
+               checksum_3	            49840896	            49840896
+               checksum_4	             7310366	             7310366
+----------------------------------------------------------------------------
