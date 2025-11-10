@@ -1,0 +1,400 @@
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 128x128
+Number of processes: 4
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.089884 seconds
+Wall Time: 0.099666 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.004171 seconds
+Verification PASSED - Results match!
+Speedup: 0.04x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 128x128
+Number of processes: 8
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.167199 seconds
+Wall Time: 0.185336 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.004150 seconds
+Verification PASSED - Results match!
+Speedup: 0.02x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 128x128
+Number of processes: 16
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.107085 seconds
+Wall Time: 0.115684 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.004154 seconds
+Verification PASSED - Results match!
+Speedup: 0.04x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 128x128
+Number of processes: 24
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.056574 seconds
+Wall Time: 0.062314 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.004189 seconds
+Verification PASSED - Results match!
+Speedup: 0.07x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 128x128
+Number of processes: 32
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.003424 seconds
+Wall Time: 0.003413 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.004148 seconds
+Verification PASSED - Results match!
+Speedup: 1.22x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 256x256
+Number of processes: 4
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.105603 seconds
+Wall Time: 0.113094 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.030049 seconds
+Verification PASSED - Results match!
+Speedup: 0.27x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 256x256
+Number of processes: 8
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.175212 seconds
+Wall Time: 0.193349 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.030231 seconds
+Verification PASSED - Results match!
+Speedup: 0.16x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 256x256
+Number of processes: 16
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.198504 seconds
+Wall Time: 0.211881 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.030080 seconds
+Verification PASSED - Results match!
+Speedup: 0.14x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 256x256
+Number of processes: 24
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.210119 seconds
+Wall Time: 0.216933 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.030167 seconds
+Verification PASSED - Results match!
+Speedup: 0.14x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 256x256
+Number of processes: 32
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.212379 seconds
+Wall Time: 0.212364 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.030254 seconds
+Verification PASSED - Results match!
+Speedup: 0.14x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 512x512
+Number of processes: 4
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.201651 seconds
+Wall Time: 0.210237 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.200149 seconds
+Verification PASSED - Results match!
+Speedup: 0.95x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 512x512
+Number of processes: 8
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.215184 seconds
+Wall Time: 0.228985 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.179477 seconds
+Verification PASSED - Results match!
+Speedup: 0.78x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 512x512
+Number of processes: 16
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.217822 seconds
+Wall Time: 0.228672 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.181815 seconds
+Verification PASSED - Results match!
+Speedup: 0.80x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 512x512
+Number of processes: 24
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.227705 seconds
+Wall Time: 0.233162 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.186443 seconds
+Verification PASSED - Results match!
+Speedup: 0.80x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 512x512
+Number of processes: 32
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.233471 seconds
+Wall Time: 0.233515 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 0.181082 seconds
+Verification PASSED - Results match!
+Speedup: 0.78x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 1024x1024
+Number of processes: 4
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.671177 seconds
+Wall Time: 0.683425 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 1.235307 seconds
+Verification PASSED - Results match!
+Speedup: 1.81x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 1024x1024
+Number of processes: 8
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.417700 seconds
+Wall Time: 0.438731 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 1.232063 seconds
+Verification PASSED - Results match!
+Speedup: 2.81x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 1024x1024
+Number of processes: 16
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.374856 seconds
+Wall Time: 0.386439 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 1.232848 seconds
+Verification PASSED - Results match!
+Speedup: 3.19x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 1024x1024
+Number of processes: 24
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.359537 seconds
+Wall Time: 0.365133 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 1.281601 seconds
+Verification PASSED - Results match!
+Speedup: 3.51x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 1024x1024
+Number of processes: 32
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 0.349706 seconds
+Wall Time: 0.349685 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 1.292472 seconds
+Verification PASSED - Results match!
+Speedup: 3.70x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 2048x2048
+Number of processes: 4
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 3.741607 seconds
+Wall Time: 3.760242 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 8.753613 seconds
+Verification PASSED - Results match!
+Speedup: 2.33x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 2048x2048
+Number of processes: 8
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 1.602495 seconds
+Wall Time: 1.628980 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 8.761342 seconds
+Verification PASSED - Results match!
+Speedup: 5.38x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 2048x2048
+Number of processes: 16
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 1.618124 seconds
+Wall Time: 1.636506 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 8.852702 seconds
+Verification PASSED - Results match!
+Speedup: 5.41x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 2048x2048
+Number of processes: 24
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 1.683134 seconds
+Wall Time: 1.694129 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 9.152910 seconds
+Verification PASSED - Results match!
+Speedup: 5.40x
+=== MPI Strassen Matrix Multiplication ===
+Matrix size: 2048x2048
+Number of processes: 32
+Tree height limit: 5
+Sequential threshold: 64
+==========================================
+
+Starting MPI Strassen multiplication...
+MPI Strassen multiplication completed!
+CPU Time: 1.686037 seconds
+Wall Time: 1.686077 seconds
+
+Verifying result with Strassen sequential multiplication...
+Strassen sequential multiplication time: 9.174788 seconds
+Verification PASSED - Results match!
+Speedup: 5.44x
